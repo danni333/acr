@@ -1,0 +1,14 @@
+[Unit]
+Description=Autobiographical Cognitive Runtime (ACR) Service
+After=network.target redis-server.service
+
+[Service]
+Type=simple
+User=tob
+WorkingDirectory=/home/tob/acr
+ExecStart=/home/tob/acr/venv/bin/python3 -m acr.main
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

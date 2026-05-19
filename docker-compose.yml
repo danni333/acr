@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  acr:
+    build: .
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"

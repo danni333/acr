@@ -1,0 +1,10 @@
+redis
+openai
+rich
+pydantic-settings
+streamlit
+uvicorn
+fastapi
+python-dotenv
+chromadb
+sentence-transformers
