@@ -20,7 +20,7 @@ async def main():
     # Initialize Core
     bus = EventBus()
     memory_manager = MemoryManager()
-    runtime = HeartbeatRuntime(bus)
+    runtime = HeartbeatRuntime(bus, tick_interval=15.0)
     llm = LLMClient() 
     kernel = CognitiveKernel(bus, runtime)
 

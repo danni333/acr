@@ -39,7 +39,11 @@ case "$1" in
         fi
         echo "📦 Updating dependencies..."
         "$ACR_PATH/venv/bin/pip" install --upgrade pip
-        "$ACR_PATH/venv/bin/pip" install redis openai rich pydantic-settings streamlit uvicorn fastapi
+        if [ -f "$ACR_PATH/requirements.txt" ]; then
+            "$ACR_PATH/venv/bin/pip" install -r "$ACR_PATH/requirements.txt"
+        else
+            "$ACR_PATH/venv/bin/pip" install redis openai rich pydantic-settings streamlit uvicorn fastapi prompt_toolkit chromadb sentence-transformers
+        fi
         echo "✅ Upgrade complete! Config and memory preserved."
         ;;
     *)

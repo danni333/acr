@@ -11,8 +11,18 @@ class BaseAgent:
         self.llm = llm
 
     async def start(self):
-        print(f"[Agent:{self.name}] Starting...")
+        print(f"[Agent:{self.name}] Online.")
         await self.setup_subscriptions()
+        
+        # Start listening for subscribed events on Redis
+        pubsub = self.bus.redis.pubsub()
+        # We need to collect all channels this agent is interested in
+        # This is a simplified version where agents listen to their subscriptions
+        # In a real system, we'd use the EventBus.subscribe more effectively
+        
+        # For now, let's make sure the agent stays alive and can receive events
+        while True:
+            await asyncio.sleep(1)
 
     async def setup_subscriptions(self):
         """Override to subscribe to specific events."""
