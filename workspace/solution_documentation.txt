@@ -1,0 +1,1 @@
+Limitation: Complex configuration management was time-consuming. Solution: Implemented Ansible for automated server provisioning and configuration.
